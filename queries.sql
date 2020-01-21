@@ -6,10 +6,21 @@ FROM [Customers]
 where PostalCode = 1010;
 
 -- Find the phone number for the supplier with the id 11
+SELECT * FROM [Suppliers]
+where SupplierID = 11;
+-- phone # is (010) 9984510
 
 -- List first 10 orders placed, sorted descending by the order date
+SELECT *
+from [Orders]
+order by orderDate desc
+limit 10
 
 -- Find all customers that live in London, Madrid, or Brazil
+SELECT *
+from [Customers]
+where City IN ('London', 'Madrid', 'Brazil')
+
 
 -- Add a customer record for "The Shire", the contact name is "Bilbo Baggins" the address is -"1 Hobbit-Hole" in "Bag End", postal code "111" and the country is "Middle Earth"
 
