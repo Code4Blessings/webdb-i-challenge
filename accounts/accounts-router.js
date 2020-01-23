@@ -63,23 +63,23 @@ router.post('/', (req, res) => {
 //Update An Account
 router.put('/:id', (req, res) => {
     const id = req.params.id
-    const data = {
-        name: req.body.name,
-        budget: req.body.budget
-    };
     dBase('accounts')
-        .where(id, data)
-        .update(data)
-        .then(accountEdited => {
-            res.status(201).json(accountEdited);
-        })  
+    .where({id: id})
+    .update(req.body)
+        .then(account => {
+                dBase('accounts').where({id: id}).first()
+                .then(accountEdited => {
+                    res.status(201).json(accountEdited);
+                })
                 .catch(err => {
                     res.status(500).json({
                         errorMessage: 'Unable to retrieve requested account',
                         message: err.message
                     });
-                });
-})
+                });  
+            })
+        });
+
 
 
 //Delete Account
