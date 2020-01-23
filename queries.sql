@@ -11,10 +11,9 @@ where SupplierID = 11;
 -- phone # is (010) 9984510
 
 -- List first 10 orders placed, sorted descending by the order date
-SELECT *
-from Orders
-order by orderDate desc
-limit 10;
+    SELECT * FROM Orders ORDER BY OrderDate DESC LIMIT 10
+
+
 
 -- Find all customers that live in London, Madrid, or Brazil
 SELECT * FROM Customers 
